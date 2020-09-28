@@ -31,14 +31,4 @@ export class Tab1Page {
   ionViewWillEnter() {
     this.scan();
   }
-  ionViewDidEnter() {
-
-  }
-  ionViewDidLeave() {
-
-  }
-  ioionViewWillLeave() {
-
-  }
-
 }
