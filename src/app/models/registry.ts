@@ -1,4 +1,4 @@
-export class Registro {
+export class Registry {
     public format: string;
     public text: string;
     public type: string;
