@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Registry } from 'src/app/models/registry';
 import { DataLocalService } from './../../services/data-local.service';
 
 @Component({
@@ -8,6 +9,11 @@ import { DataLocalService } from './../../services/data-local.service';
 })
 export class Tab2Page {
 
-  constructor(public dataService: DataLocalService) {}
-
+  constructor(public dataService: DataLocalService) { }
+  sendEmail() {
+    this.dataService.clearHistory();
+  }
+  openRegistry(registry: Registry) {
+    this.dataService.openRegistry(registry);
+  }
 }
