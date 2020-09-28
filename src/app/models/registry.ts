@@ -20,9 +20,9 @@ export class Registry {
                 this.type = 'http';
                 this.icon = 'globe';
                 break;
-            case 'http':
+            case 'geo:':
                 this.type = 'geo';
-                this.icon = 'pin';
+                this.icon = 'map';
                 break;
             default:
                 this.type = 'No reconocido';

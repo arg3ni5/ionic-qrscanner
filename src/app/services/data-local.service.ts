@@ -15,7 +15,7 @@ export class DataLocalService {
     this.getHistory();
   }
 
-  
+
   async getHistory() {
     this.history = (await this.nativeStorage.getItem('history')) || [];
   }
@@ -35,10 +35,14 @@ export class DataLocalService {
   }
 
   openRegistry(registry: Registry) {
+    console.log(registry);
     this.navCtrl.navigateForward('/tabs/tab2');
     switch (registry.type) {
       case 'http':
         this.inAppBrowser.create(registry.text, '_system');
+        break;
+      case 'geo':
+        this.navCtrl.navigateForward(`/tabs/tab2/map/${registry.text}`);
         break;
     }
   }

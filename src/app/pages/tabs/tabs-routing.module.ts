@@ -7,13 +7,13 @@ const routes: Routes = [
     path: 'tabs',
     component: TabsPage,
     children: [
+      { path: 'tab1', loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule) },
       {
-        path: 'tab1',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
-      },
-      {
-        path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        path: 'tab2', 
+        children: [
+          { path: '', loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule) },
+          { path: 'map/:geo', loadChildren: () => import('../map/map.module').then(m => m.MapPageModule) }
+        ],
       },
       {
         path: '',
@@ -33,4 +33,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }
